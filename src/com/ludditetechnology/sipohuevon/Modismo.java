@@ -19,7 +19,7 @@ public class Modismo {
 
     public Modismo(JSONObject json) {
         try {
-            this.user = new User(json.getJSONObject("user"));
+            this.user = User.for_json(json.getJSONObject("user"));
             this.id = json.getString("id");
             this.frase = json.getString("frase");
             this.definicion = json.getString("definicion");
@@ -43,5 +43,9 @@ public class Modismo {
 
     public User getUser() {
         return user;
+    }
+
+    public String getId() {
+        return id;
     }
 }

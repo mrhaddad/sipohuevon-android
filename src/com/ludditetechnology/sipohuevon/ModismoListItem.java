@@ -35,7 +35,7 @@ public class ModismoListItem extends LinearLayout {
         ((TextView) findViewById(R.id.ejemplo)).setText(modismo.getEjemplo());
     }
 
-//    public Entry getEntry() {
-//        return modismo;
-//    }
+    public Modismo getModismo() {
+        return modismo;
+    }
 }

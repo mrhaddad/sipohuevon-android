@@ -29,6 +29,7 @@ public class MyActivity extends Activity {
 
         @Override
         protected void onPostExecute(List<Modismo> modismos) {
+            MyApp.addModismos(modismos);
             ListView modismosListView = (ListView) findViewById(R.id.modismos_list_view);
             modismosListView.setAdapter(new ModismosAdapter(MyActivity.this, modismos));
         }

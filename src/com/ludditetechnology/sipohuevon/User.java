@@ -22,9 +22,11 @@ public class User {
     private String last_name;
     private String image_url;
     private Bitmap image;
+    private String id;
 
     public User(JSONObject json) {
         try {
+            this.id = json.getString("id");
             this.first_name = json.getString("first_name");
             this.last_name = json.getString("first_name");
             this.image_url = json.getString("image_url");
@@ -40,5 +42,21 @@ public class User {
 
     public Bitmap getImage() {
         return image;
+    }
+
+    public static User for_json(JSONObject json) throws JSONException {
+        for (User user : MyApp.getUsers()) {
+            if(user.getId().equals(json.getString("id"))) {
+                return user;
+            }
+        }
+
+        User user = new User(json);
+        MyApp.addUser(user);
+        return user;
+    }
+
+    public String getId() {
+        return id;
     }
 }

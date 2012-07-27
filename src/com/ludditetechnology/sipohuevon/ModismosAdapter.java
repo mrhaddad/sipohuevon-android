@@ -46,10 +46,9 @@ public class ModismosAdapter extends BaseAdapter {
         modismoListItem.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 ModismoListItem listItem = (ModismoListItem) view;
-//                Intent intent = new Intent(activity, ModismoScreen.class);
-//                intent.putExtra("user_id", listItem.getModismo().getUserId());
-//                intent.putExtra("modismo_id", listItem.getModismo().getId());
-//                activity.startActivity(intent);
+                Intent intent = new Intent(activity, ModismoScreen.class);
+                intent.putExtra("id", listItem.getModismo().getId());
+                activity.startActivity(intent);
             }
         });
 
