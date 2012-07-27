@@ -14,3 +14,8 @@ gen/
 
 # Local configuration file (sdk path, etc)
 local.properties
+target
+.idea
+out
+.DS_Store
+*.iml
