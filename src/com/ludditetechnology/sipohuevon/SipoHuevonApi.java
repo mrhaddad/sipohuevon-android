@@ -33,13 +33,10 @@ public class SipoHuevonApi {
         return modismos;
     }
 
-    public User createUser(String uid, String email, String first_name, String last_name) {
+    public User createUser(String access_token) {
         User user = null;
         RestClient client = new RestClient(API_ENDPOINT + "/users.json");
-        client.AddParam("user[facebook_uid]", uid);
-        client.AddParam("user[email]", email);
-        client.AddParam("user[first_name]", first_name);
-        client.AddParam("user[last_name]", last_name);
+        client.AddParam("access_token", access_token);
         try {
             client.Execute(RequestMethod.POST);
             String response = client.getResponse();
@@ -49,5 +46,23 @@ public class SipoHuevonApi {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public Modismo createModismo(String frase, String definicion, String ejemplo) {
+        Modismo modismo = null;
+        RestClient client = new RestClient(API_ENDPOINT + "/modismos.json");
+        client.AddParam("access_token", ((MyApp) MyApp.getContext()).getAccessToken());
+        client.AddParam("modismo[frase]", frase);
+        client.AddParam("modismo[definicion]", definicion);
+        client.AddParam("modismo[ejemplo]", ejemplo);
+        try {
+            client.Execute(RequestMethod.POST);
+            String response = client.getResponse();
+            JSONObject json = new JSONObject(response);
+            modismo = new Modismo(json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return modismo;
     }
 }
