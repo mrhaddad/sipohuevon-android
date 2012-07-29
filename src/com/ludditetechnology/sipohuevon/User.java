@@ -20,6 +20,7 @@ import java.net.URL;
 public class User {
     private String first_name;
     private String last_name;
+    private String facebook_uid;
     private String image_url;
     private Bitmap image;
     private String id;
@@ -27,6 +28,7 @@ public class User {
     public User(JSONObject json) {
         try {
             this.id = json.getString("id");
+            this.facebook_uid = json.getString("facebook_uid");
             this.first_name = json.getString("first_name");
             this.last_name = json.getString("first_name");
             this.image_url = json.getString("image_url");
