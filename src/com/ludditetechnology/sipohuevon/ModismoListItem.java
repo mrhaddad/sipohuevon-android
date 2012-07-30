@@ -14,10 +14,10 @@ import android.widget.TextView;
  * To change this template use File | Settings | File Templates.
  */
 public class ModismoListItem extends LinearLayout {
-    private MyActivity context;
+    private Context context;
     private Modismo modismo;
 
-    public ModismoListItem(MyActivity context, Modismo modismo) {
+    public ModismoListItem(Context context, Modismo modismo) {
         super(context);
         this.context = context;
         this.modismo = modismo;

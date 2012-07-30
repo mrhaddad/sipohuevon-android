@@ -1,5 +1,6 @@
 package com.ludditetechnology.sipohuevon;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,9 @@ import java.util.List;
  */
 public class ModismosAdapter extends BaseAdapter {
     private List<Modismo> modismos;
-    private MyActivity activity;
+    private Context activity;
 
-    public ModismosAdapter(MyActivity myActivity, List<Modismo> modismos) {
+    public ModismosAdapter(Context myActivity, List<Modismo> modismos) {
         this.activity = myActivity;
         this.modismos = modismos;
     }
@@ -37,12 +38,7 @@ public class ModismosAdapter extends BaseAdapter {
 
     public View getView(int i, View view, ViewGroup viewGroup) {
         ModismoListItem modismoListItem = new ModismoListItem(activity, modismos.get(i));
-//        modismoListItemView.setClickable(true);
-//        modismoListItemView.setFocusable(true);
-//        modismoListItemView.setBackgroundResource(android.R.drawable.menuitem_background);
-//        final SimpleGame game = games.get(i);
-//        modismoListItemView.setGame(game);
-//
+
         modismoListItem.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 ModismoListItem listItem = (ModismoListItem) view;

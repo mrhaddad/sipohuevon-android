@@ -2,9 +2,11 @@
 <resources>
     <string name="app_name">sipohuevon</string>
     <string name="create_modismo">Crear modismo</string>
+    <string name="define">Define</string>
     <string name="definicion">Definción</string>
     <string name="ejemplo">Ejemplo</string>
     <string name="frase">Frase</string>
     <string name="invalid_modismo">Modismo no es válido</string>
     <string name="new_modismo">Nuevo modismo</string>
+    <string name="search">Buscar</string>
 </resources>

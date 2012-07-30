@@ -14,7 +14,8 @@
             </intent-filter>
         </activity>
         <activity android:name="ModismoScreen"/>
-        <activity android:name="CreateModismoScreen"/>
+        <activity android:name=".NewModismoScreen"/>
+        <activity android:name="SearchScreen"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

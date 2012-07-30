@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -15,11 +16,12 @@ import android.widget.Toast;
  * Time: 5:30 PM
  * To change this template use File | Settings | File Templates.
  */
-public class CreateModismoScreen extends Activity {
+public class NewModismoScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);    //To change body of overridden methods use File | Settings | File Templates.
-        setContentView(R.layout.create_modismo_screen);
+        setContentView(R.layout.new_modismo_screen);
+        ((TextView) findViewById(R.id.frase_text)).setText(getIntent().getStringExtra("frase"));
     }
 
     public void createModismoClicked(View v) {
@@ -55,10 +57,9 @@ public class CreateModismoScreen extends Activity {
 
         @Override
         protected void onPostExecute(Modismo modismo) {
-            MyApp.addModismo(modismo);
-            Intent intent = new Intent(CreateModismoScreen.this, ModismoScreen.class);
+            Intent intent = new Intent(NewModismoScreen.this, ModismoScreen.class);
             intent.putExtra("id", modismo.getId());
-            CreateModismoScreen.this.startActivity(intent);
+            NewModismoScreen.this.startActivity(intent);
         }
     }
 }

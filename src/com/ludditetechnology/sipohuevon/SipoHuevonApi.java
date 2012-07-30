@@ -30,6 +30,7 @@ public class SipoHuevonApi {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        MyApp.addModismos(modismos);
         return modismos;
     }
 
@@ -63,6 +64,25 @@ public class SipoHuevonApi {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        MyApp.addModismo(modismo);
         return modismo;
+    }
+
+    public List<Modismo> search(String term) {
+        List<Modismo> modismos = new ArrayList<Modismo>();
+        RestClient client = new RestClient(API_ENDPOINT + "/search.json");
+        client.AddParam("search[term]", term);
+        try {
+            client.Execute(RequestMethod.GET);
+            String response = client.getResponse();
+            JSONArray array = new JSONArray(response);
+            for (int i = 0; i < array.length(); i++) {
+                modismos.add(new Modismo(array.getJSONObject(i)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        MyApp.addModismos(modismos);
+        return modismos;
     }
 }
