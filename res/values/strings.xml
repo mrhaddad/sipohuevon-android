@@ -9,4 +9,6 @@
     <string name="invalid_modismo">Modismo no es válido</string>
     <string name="new_modismo">Nuevo modismo</string>
     <string name="search">Buscar</string>
+    <string name="vote_up">+1</string>
+    <string name="vote_down">-1</string>
 </resources>

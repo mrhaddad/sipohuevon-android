@@ -61,4 +61,24 @@ public class User {
     public String getId() {
         return id;
     }
+
+    public boolean hasUpVoted(Modismo modismo) {
+        for (Vote vote : modismo.getVotes()) {
+            if(vote.getUserId().equals(id) && vote.getType().equals("UpVote")) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean hasDownVoted(Modismo modismo) {
+        for (Vote vote : modismo.getVotes()) {
+            if(vote.getUserId().equals(id) && vote.getType().equals("DownVote")) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

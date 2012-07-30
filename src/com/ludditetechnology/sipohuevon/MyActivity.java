@@ -27,7 +27,6 @@ public class MyActivity extends Activity {
 
         liveSearch();
         authorizeFacebook();
-        new GetModismosTask().execute();
     }
 
     private void liveSearch() {
@@ -90,6 +89,12 @@ public class MyActivity extends Activity {
         @Override
         protected User doInBackground(String... strings) {
             return new SipoHuevonApi().createUser(strings[0]);
+        }
+
+        @Override
+        protected void onPostExecute(User user) {
+            MyApp.setCurrentUser(user);
+            new GetModismosTask().execute();
         }
     }
 

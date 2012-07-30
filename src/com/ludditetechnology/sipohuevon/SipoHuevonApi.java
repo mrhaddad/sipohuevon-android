@@ -85,4 +85,14 @@ public class SipoHuevonApi {
         MyApp.addModismos(modismos);
         return modismos;
     }
+
+    public void createVote(Modismo modismo, String type) {
+        RestClient client = new RestClient(API_ENDPOINT + "/modismos/" + modismo.getId() + "/votes/" + type + ".json");
+        client.AddParam("access_token", ((MyApp) MyApp.getContext()).getAccessToken());
+        try {
+            client.Execute(RequestMethod.POST);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

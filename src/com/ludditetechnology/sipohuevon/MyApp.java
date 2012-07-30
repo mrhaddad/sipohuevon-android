@@ -19,6 +19,7 @@ public class MyApp extends Application {
     private static ArrayList<Modismo> modismos = new ArrayList<Modismo>();
     private static ArrayList<User> users = new ArrayList<User>();
     public static String PREFS_NAME = "SipoHuevonPreferences";
+    private static User current_user;
 
     public static List<User> getUsers() {
         return users;
@@ -74,5 +75,13 @@ public class MyApp extends Application {
         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
         editor.putLong("access_expires", accessExpires);
         editor.commit();
+    }
+
+    public static User currentUser() {
+        return MyApp.current_user;
+    }
+
+    public static void setCurrentUser(User user) {
+        MyApp.current_user = user;
     }
 }
